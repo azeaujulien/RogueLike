@@ -26,6 +26,10 @@ public class PlayerHotbar : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function use item in item holder and update graphics
+    /// </summary>
+    /// <param name="itemHolder">Item holder with wanted item in</param>
     private void UseItem(ItemHolder itemHolder)
     {
         itemHolder.UseItem();

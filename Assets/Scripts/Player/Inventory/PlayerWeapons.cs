@@ -32,6 +32,9 @@ public class PlayerWeapons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function update UI info of weapons
+    /// </summary>
     private void UpdateGraphics()
     {
         for (int i = 0; i < weaponHolders.Length; i++) {
@@ -43,6 +46,10 @@ public class PlayerWeapons : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function is use to get current use weapon
+    /// </summary>
+    /// <returns>Current use weapon</returns>
     public Weapon GetCurrentWeapon()
     {
         return weaponHolders[currentWeaponIndex].weapon;

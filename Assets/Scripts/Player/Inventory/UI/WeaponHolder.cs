@@ -17,6 +17,10 @@ public class WeaponHolder : MonoBehaviour
     public Color useBackgroundColor;
     public Color unuseBackgroundColor;
 
+    
+    /// <summary>
+    ///     This function init all UI info of weapon
+    /// </summary>
     public void InitGraphics()
     {
         nameText.text = weapon.weaponName;
@@ -30,12 +34,19 @@ public class WeaponHolder : MonoBehaviour
         UpdateAmmoGraphics();
     }
     
+    /// <summary>
+    ///     This function change weapon and reinit UI
+    /// </summary>
+    /// <param name="newWeapon">New weapon who replace the current</param>
     public void ChangeWeapon(Weapon newWeapon)
     {
         weapon = newWeapon;
         InitGraphics();
     }
 
+    /// <summary>
+    ///     This function update the number of ammo in UI
+    /// </summary>
     public void UpdateAmmoGraphics()
     {
         DistanceWeapon info = weapon as DistanceWeapon;
@@ -45,12 +56,18 @@ public class WeaponHolder : MonoBehaviour
             ammoText.text = "";
         }
     }
-
+    
+    /// <summary>
+    ///     This function set visual info to show the weapon in use
+    /// </summary>
     public void UseWeapon()
     {
         background.color = useBackgroundColor;
     }
 
+    /// <summary>
+    ///     This function set visual info to show the weapon in use
+    /// </summary>
     public void UnUseWeapon()
     {
         background.color = unuseBackgroundColor;

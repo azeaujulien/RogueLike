@@ -15,6 +15,9 @@ public class PlayerSpells : MonoBehaviour
         InitGraphics();
     }
 
+    /// <summary>
+    ///     This function init all UI info
+    /// </summary>
     private void InitGraphics()
     {
         if (currentSpell != null) {
@@ -36,12 +39,19 @@ public class PlayerSpells : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function change the current spell and update UI
+    /// </summary>
+    /// <param name="newSpell">New spell who replace the current</param>
     public void ChangeSpell(Spell newSpell)
     {
         currentSpell = newSpell;
         InitGraphics();
     }
 
+    /// <summary>
+    ///     This function close the spell's menu
+    /// </summary>
     public void CloseMenu()
     {
         spellsMenu.SetActive(false);
