@@ -3,6 +3,7 @@
 public class Doorway : MonoBehaviour
 {
     public Room room;
+    
     private void OnDrawGizmos()
     {
         Ray ray = new Ray(transform.position, transform.rotation * Vector3.forward);

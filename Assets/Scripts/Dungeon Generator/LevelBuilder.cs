@@ -33,6 +33,9 @@ public class LevelBuilder : MonoBehaviour
         StartCoroutine(GenerateLevel());
     }
 
+    /// <summary>
+    ///     This function run all function to generate lever
+    /// </summary>
     private IEnumerator GenerateLevel()
     {
         WaitForSeconds startup = new WaitForSeconds(1);
@@ -66,7 +69,10 @@ public class LevelBuilder : MonoBehaviour
         // Set player active
         player.SetActive(true);
     }
-
+    
+    /// <summary>
+    ///     This function instantiate start room
+    /// </summary>
     private void PlaceStartRoom()
     {
         Debug.Log("Place start room");
@@ -82,6 +88,9 @@ public class LevelBuilder : MonoBehaviour
         _startRoom.transform.rotation = Quaternion.identity;
     }
 
+    /// <summary>
+    ///     This function instantiate a room choose randomly and instantiate it in front of an random available doorway
+    /// </summary>
     private void PlaceRoom()
     {
         Debug.Log("Place random room from list");
@@ -149,7 +158,11 @@ public class LevelBuilder : MonoBehaviour
             ResetLevelGenerator();
         }
     }
+    
 
+    /// <summary>
+    ///     This function instantiate end room
+    /// </summary>
     private void PlaceEndRoom()
     {
         Debug.Log("Place end room");
@@ -193,6 +206,12 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function modify position of room to position it front of another room
+    /// </summary>
+    /// <param name="room">Reference to the room you want to place</param>
+    /// <param name="roomDoorway">Random doorway of the room you want to place</param>
+    /// <param name="targetDoorway">Random doorway of all available doorways</param>
     private void PositionRoomAtDoorway(ref Room room, Doorway roomDoorway, Doorway targetDoorway)
     {
         // Reset room position and rotation
@@ -211,6 +230,10 @@ public class LevelBuilder : MonoBehaviour
         room.transform.position = targetDoorway.transform.position - roomPositionOffset;
     }
     
+    /// <summary>
+    ///     This function check if the room given in parameter overlap another room
+    /// </summary>
+    /// <param name="room">Reference to the room you want to check</param>
     private bool CheckRoomOverlap(Room room)
     {
         Bounds bounds = room.RoomBounds;
@@ -233,6 +256,9 @@ public class LevelBuilder : MonoBehaviour
         return false;
     }
     
+    /// <summary>
+    ///     This function reset the level by deleted all room instantiate
+    /// </summary>
     public void ResetLevelGenerator()
     {
         Debug.Log("Reset level generator");
@@ -259,6 +285,11 @@ public class LevelBuilder : MonoBehaviour
         StartCoroutine(GenerateLevel());
     }
 
+    /// <summary>
+    ///     This function add the free doorways of the room given in parameter to the list of all available doorways
+    /// </summary>
+    /// <param name="room">Room with available doorway</param>
+    /// <param name="list">Reference to the list of all available doorway</param>
     private void AddDoorwaysToList(Room room, ref List<Doorway> list)
     {
         foreach (Doorway doorway in room.doorways) {
@@ -267,6 +298,12 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function choose room randomly and return it
+    /// </summary>
+    /// <returns>
+    ///     Randomly choose room
+    /// </returns>
     private Room ChooseRoom()
     {
         float total = 0;
