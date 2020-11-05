@@ -11,6 +11,10 @@ public class SpellInfo : MonoBehaviour
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI priceText;
     
+    /// <summary>
+    ///     Init all UI information of spell
+    /// </summary>
+    /// <param name="spell">Spell to display</param>
     public void InitGraphics(Spell spell)
     {
         icon.sprite = spell.spellImage;
