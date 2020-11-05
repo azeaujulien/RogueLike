@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04215672b644a724eb1e95ddabe05d9d, type: 3}
+  m_Name: Poison
+  m_EditorClassIdentifier: 
+  spellName: Poison
+  spellImage: {fileID: 21300000, guid: ae7003ae3cacc21419e234ed94238ada, type: 3}
+  spellPrice: 10
+  spellDescription: "Empoissone votre enemie et lui inflige des d\xE9gats pendant
+    une certaine dur\xE9e"
