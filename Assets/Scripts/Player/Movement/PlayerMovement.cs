@@ -95,12 +95,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///     This function move player in direction given in parameter
+    /// </summary>
+    /// <param name="direction">The direction of the player</param>
     private void Move(Vector3 direction)
     {
         RotatePlayer(direction, turnSmoothTime);
         controller.Move(direction * (speed * Time.deltaTime));
     }
 
+    /// <summary>
+    ///     This function move fastly player in direction given in parameter
+    /// </summary>
+    /// <param name="direction">The direction of the dash</param>
     private void Dash(Vector3 direction)
     {
         _dashDirection = direction;
@@ -108,6 +116,11 @@ public class PlayerMovement : MonoBehaviour
         _dashingTime = dashDuration;
     }
     
+    /// <summary>
+    ///     This function rotate player to direction given in parameter
+    /// </summary>
+    /// <param name="direction">The direction of the player</param>
+    /// <param name="turnSmooth">Smoothness of turn</param>
     private void RotatePlayer(Vector3 direction, float turnSmooth)
     {
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
@@ -116,6 +129,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
     
+    /// <summary>
+    ///     This function is use to get position of mouse click
+    /// </summary>
+    /// <returns>Position of the mouse click in Vector3</returns>
     private Vector3 GetPosition()
     {
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
@@ -127,7 +144,10 @@ public class PlayerMovement : MonoBehaviour
 
         return transform.position;
     }
-
+    
+    /// <summary>
+    ///     This function instantiate an indicator at the position of the click
+    /// </summary>
     private void SpawnIndicator()
     {
         if (_currentIndicator != null) {
@@ -137,6 +157,9 @@ public class PlayerMovement : MonoBehaviour
         Destroy(_currentIndicator, 1f);
     }
     
+    /// <summary>
+    ///     This function stop movement of the player
+    /// </summary>
     public void StopPlayer()
     {
         controller.enabled = false;
